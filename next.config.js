@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-    customKey: 'my-value',
+    projectId: '262c982def2340dcb7434a9dfa0e33c5',
   },
 }
