@@ -54,7 +54,46 @@ export default function CreatorDashboard() {
 
     return (
         <div>
-            Hello World
+            <div className="p-4">
+                <h2 className="text-3xl py-2 text-center">Assets Created</h2>
+
+                <div className="flex justify-center sm:mx-16" style={{ maxWidth: '1440px' }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:w-full pt-4">
+                        {
+                            nfts.map((nft, i) => (
+                                <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
+                                    <img src={nft.image} className="max-h-60 min-w-full object-fill" />
+                                    <div className="flex justify-between items-center p-4 bg-black text-xl text-black">
+                                        <p>Price </p>
+                                        <span className="font-medium">{nft.price} Eth</span>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className="px-4">
+                {
+                    Boolean(sold.length) && (
+                        <div>
+                            <h2 className="text-2xl py-2">Items sold</h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                                {
+                                    sold.map((nft, i) => (
+                                        <div key={i} className="border shadow rounded-xl overflow-hidden">
+                                        <img src={nft.image} className="rounded" />
+                                        <div className="p-4 bg-black">
+                                            <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
+                                        </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     )
 }
