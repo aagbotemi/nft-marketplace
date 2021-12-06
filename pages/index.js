@@ -78,9 +78,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="flex justify-center sm:mx-16" style={{ maxWidth: '1440px' }}>
-          {/* <div className="px-4" > */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:w-full pt-4">
+        <div className='text-center mt-8'>
+          <h1 className="font-bold text-3xl">TRENDING COLLECTIONS</h1>
+          <p className="">Where your dream lives</p>
+        </div>
+        <div className="flex justify-center">
+          <div className="px-4"  style={{ maxWidth: '1600px' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
               {
                 nfts.map((nft, i) => (
                   <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
@@ -103,7 +107,7 @@ export default function Home() {
                 ))
               }
             </div>
-          {/* </div> */}
+          </div>
         </div>
       </main>
     </div>

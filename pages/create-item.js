@@ -78,7 +78,7 @@ export default function CreateItem() {
 
 
     return (
-        <div className="">
+        <div>
             <div className='text-center mt-8'>
                 <h1 className="font-bold text-3xl">Create NFT</h1>
                 <p className="">Mint an NFT and list it on the marketplace</p>
