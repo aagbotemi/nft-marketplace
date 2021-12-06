@@ -33,7 +33,24 @@ export default function CreateItem() {
             console.log('Error uploading file: ', error)
         }  
     }
-    
+
+    async function createMarket() {
+        const { name, description, price } = formInput
+        if (!name || !description || !price || !fileUrl) return
+        /* first, upload to IPFS */
+        const data = JSON.stringify({
+            name, description, image: fileUrl
+        })
+        try {
+            const added = await client.add(data)
+            const url = `https://ipfs.infura.io/ipfs/${added.path}`
+            /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
+            createSale(url)
+        } catch (error) {
+            console.log('Error uploading file: ', error)
+        }  
+    }
+
     return (
         <div className="flex justify-center">
             Hello World
