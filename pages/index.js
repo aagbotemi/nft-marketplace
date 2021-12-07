@@ -91,7 +91,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className=''>
+        <div className=' text-center mt-8'>
           <h1 className="font-bold text-3xl">TRENDING COLLECTIONS</h1>
           <p className="">Where your dream lives</p>
         </div>

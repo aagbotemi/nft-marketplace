@@ -90,7 +90,6 @@ export default function CreateItem() {
         router.push('/')
     }
 
-
     return (
         <div>
             <div className='text-center mt-8'>
