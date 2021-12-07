@@ -15,7 +15,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-
 function MyApp({ Component, pageProps }) {
   const [currentAccount, setCurrentAccount] = useState("");
 

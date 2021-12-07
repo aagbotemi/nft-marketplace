@@ -2,6 +2,7 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
+import LoadingIndicator from '../components/Loading'
 
 import {
   nftmarketaddress, nftaddress
@@ -56,7 +57,9 @@ export default function CreatorDashboard() {
         <div>
             <div className="p-4">
                 <h2 className="text-3xl py-2 text-center">Assets Created</h2>
-
+                {
+                    loadingState === 'not-loaded' ? <LoadingIndicator /> : null
+                }
                 <div className="flex justify-center sm:mx-16" style={{ maxWidth: '1440px' }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:w-full pt-4">
                         {
@@ -82,7 +85,7 @@ export default function CreatorDashboard() {
                                 {
                                     sold.map((nft, i) => (
                                         <div key={i} className="border shadow rounded-xl overflow-hidden">
-                                        <img src={nft.image} className="rounded" />
+                                        <img src={nft.image} className="rounded" alt="nft asset" />
                                         <div className="p-4 bg-black">
                                             <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
                                         </div>

@@ -5,6 +5,7 @@ import axios from 'axios'
 import Web3Modal from "web3modal"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import LoadingIndicator from '../components/Loading'
 
 import {
   nftaddress, nftmarketaddress
@@ -95,7 +96,7 @@ export default function Home() {
           <p className="">Where your dream lives</p>
         </div>
         {
-          loadingState === 'not-loaded' ? <h1 className="px-20 py-10 text-3xl">Loading...</h1> : null
+          loadingState === 'not-loaded' ? <LoadingIndicator /> : null
         }
         <div className="flex justify-center">
           <div className="px-4"  style={{ maxWidth: '1600px' }}>
@@ -105,7 +106,7 @@ export default function Home() {
                   <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
                     <img
                       src={nft.image}
-                      alt="Landscape picture"
+                      alt="nfts assets"
                       className="max-h-60 min-w-full object-fill"
                     />
                     <div className="p-4 py-3">
