@@ -53,25 +53,23 @@ export default function MyAssets() {
     if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 text-center text-3xl">No assets owned</h1>)
     
     return (
-        <div className="flex justify-center">
-            <div className="p-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-                {
-                    loadingState === 'not-loaded' ? <LoadingIndicator /> : null
-                }
-                {
-                    nfts.map((nft, i) => (
-                        <div key={i} className="border shadow rounded-xl overflow-hidden">
-                            <img src={nft.image} className="rounded" alt="nfts assets" />
-                            <div className="p-4 bg-black">
-                            <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
-                            </div>
+        <div className="">
+            <div className="text-center mt-5">My Digital Assets</div>
+            {
+                loadingState === 'not-loaded' ? <LoadingIndicator /> : null
+            }
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
+            {
+                nfts.map((nft, i) => (
+                    <div key={i} className="border shadow rounded-xl overflow-hidden">
+                        <img src={nft.image} className="rounded" alt="nfts assets" />
+                        <div className="p-4 bg-black">
+                        <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
                         </div>
-                    ))
-                }
-                </div>
+                    </div>
+                ))
+            }
             </div>
-            
         </div>
     )
 }

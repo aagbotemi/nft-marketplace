@@ -60,28 +60,26 @@ export default function CreatorDashboard() {
                 {
                     loadingState === 'not-loaded' ? <LoadingIndicator /> : null
                 }
-                <div className="flex justify-center sm:mx-16" style={{ maxWidth: '1440px' }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:w-full pt-4">
-                        {
-                            nfts.map((nft, i) => (
-                                <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
-                                    <img src={nft.image} className="max-h-60 min-w-full object-fill" />
-                                    <div className="flex justify-between items-center p-4 bg-black text-xl text-black">
-                                        <p>Price </p>
-                                        <span className="font-medium">{nft.price} Eth</span>
-                                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
+                    {
+                        nfts.map((nft, i) => (
+                            <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
+                                <img src={nft.image} className="max-h-60 min-w-full object-fill" />
+                                <div className="flex justify-between items-center p-4 bg-black text-xl text-black">
+                                    <p>Price </p>
+                                    <span className="font-medium">{nft.price} Eth</span>
                                 </div>
-                            ))
-                        }
-                    </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
-            <div className="px-4">
+            <div>
                 {
                     Boolean(sold.length) && (
                         <div>
                             <h2 className="text-2xl py-2">Items sold</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
                                 {
                                     sold.map((nft, i) => (
                                         <div key={i} className="border shadow rounded-xl overflow-hidden">
