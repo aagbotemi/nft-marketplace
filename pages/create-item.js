@@ -3,6 +3,8 @@ import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
@@ -47,7 +49,13 @@ export default function CreateItem() {
             /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
             createSale(url)
         } catch (error) {
-            console.log('Error uploading file: ', error)
+            // console.log('Error uploading file: ', error)
+            toast.dismiss();
+            toast.error('Error uploading file: ', error.message, {
+                position: "top-right",
+                pauseOnHover: true,
+                draggable: false,
+            });
         }  
     }
 
@@ -73,6 +81,12 @@ export default function CreateItem() {
 
         transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
         await transaction.wait()
+        toast.dismiss();
+        toast.success('Asset created successfully', {
+            position: "top-right",
+            pauseOnHover: true,
+            draggable: false,
+        });
         router.push('/')
     }
 

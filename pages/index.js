@@ -3,7 +3,8 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
-import Image from 'next/image'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 import {
   nftaddress, nftmarketaddress
@@ -15,6 +16,11 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 export default function Home() {
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
+
+  toast.configure({
+    autoClose: 7000,
+    draggable: true,
+  });
 
   useEffect(() => {
     loadNFTs()
@@ -64,6 +70,12 @@ export default function Home() {
       value: price
     })
     await transaction.wait()
+    toast.dismiss()
+    toast.success('Asset created successfully', {
+      position: "top-right",
+      pauseOnHover: true,
+      draggable: false,
+    });
     loadNFTs()
   }
   
@@ -82,6 +94,9 @@ export default function Home() {
           <h1 className="font-bold text-3xl">TRENDING COLLECTIONS</h1>
           <p className="">Where your dream lives</p>
         </div>
+        {
+          loadingState === 'not-loaded' ? <h1 className="px-20 py-10 text-3xl">Loading...</h1> : null
+        }
         <div className="flex justify-center">
           <div className="px-4"  style={{ maxWidth: '1600px' }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">

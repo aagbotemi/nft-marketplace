@@ -3,6 +3,8 @@ import Link from 'next/link';
 import '../styles/globals.css'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const navigation = [
   { name: 'CreateNFT', url: '/create-item', current: true },
@@ -15,32 +17,47 @@ function classNames(...classes) {
 
 
 function MyApp({ Component, pageProps }) {
-
-  // const currentAccount = "0x3904809348afd930092"
   const [currentAccount, setCurrentAccount] = useState("");
+
+  toast.configure({
+    autoClose: 7000,
+    draggable: true,
+  });
 
   const checkIfWalletIsConnected = async () => {
     try {
       const { ethereum } = window;
 
       if (!ethereum) {
-        alert("Make sure you have metamask!");
+        // alert("Make sure you have metamask!");
+        toast.dismiss();
+        toast.info("Make sure you have metaMask!", {
+          position: "top-right",
+          pauseOnHover: true,
+          draggable: false,
+        });
         return;
       } else {
-        alert("We have the ethereum object", ethereum);
+        console.log("We have the ethereum object", ethereum);
       }
 
       const accounts = await ethereum.request({ method: 'eth_accounts' });
 
       if (accounts.length !== 0) {
         const account = accounts[0];
-        alert("Found an authorized account:", account);
+        console.log("Found an authorized account:", account);
         setCurrentAccount(account);
       } else {
-        alert("No authorized account found")
+        console.log("No authorized account found")
       }
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
+      toast.dismiss();
+      toast.error(error.message, {
+        position: "top-right",
+        pauseOnHover: true,
+        draggable: false,
+      });
     }
   }
 
@@ -54,7 +71,12 @@ function MyApp({ Component, pageProps }) {
 
       if (!ethereum) {
         // alert("Get MetaMask!");
-        // setLoadingWallet(false);
+        toast.dismiss();
+        toast.info("Get MetaMask!", {
+          position: "top-right",
+          pauseOnHover: true,
+          draggable: false,
+        });
         return;
       }
 
@@ -62,10 +84,20 @@ function MyApp({ Component, pageProps }) {
 
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
-      // setLoadingWallet(false);
+      toast.dismiss();
+      toast.success("You're connected successfully", {
+        position: "top-right",
+        pauseOnHover: true,
+        draggable: false,
+      });
     } catch (error) {
-      console.log(error)
-      // setLoadingWallet(false);
+      // console.log(error)
+      toast.dismiss();
+      toast.error(error.message, {
+        position: "top-right",
+        pauseOnHover: true,
+        draggable: false,
+      });
     }
   }
 
