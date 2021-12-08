@@ -98,30 +98,28 @@ export default function Home() {
         {
           loadingState === 'not-loaded' ? <LoadingIndicator /> : null
         }
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
-          <div className="">
-            {
-              nfts.map((nft, i) => (
-                <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
-                  <img
-                    src={nft.image}
-                    alt="nfts assets"
-                    className="max-h-64 w-full object-fill"
-                  />
-                  <div className="p-4 py-3">
-                    <p style={{ height: '20px' }} className="text-xl font-medium">{nft.name}</p>
-                    <div style={{ height: '25px', overflow: 'hidden' }}>
-                      <p className="text-gray-400 mt-1 text-sm">{nft.description}</p>
-                    </div>
-                  </div>
-                  <div className="px-4 py-2 border-t border-gray-300">
-                    <p className="text-xl mb-1 font-medium font-raleway">{nft.price} ETH</p>
-                    <button className="w-full bg-blue-light text-white font-bold py-2 rounded" onClick={() => buyNft(nft)}>Buy</button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
+          {
+            nfts.map((nft, i) => (
+              <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
+                <img
+                  src={nft.image}
+                  alt="nfts assets"
+                  className="h-64 w-full object-fill"
+                />
+                <div className="p-4 py-3">
+                  <p style={{ height: '20px' }} className="text-xl font-medium">{nft.name}</p>
+                  <div style={{ height: '25px', overflow: 'hidden' }}>
+                    <p className="text-gray-400 mt-1 text-sm">{nft.description}</p>
                   </div>
                 </div>
-              ))
-            }
-          </div>
+                <div className="px-4 py-2 border-t border-gray-300">
+                  <p className="text-xl mb-1 font-medium font-raleway">{nft.price} ETH</p>
+                  <button className="w-full bg-blue-light text-white font-bold py-2 rounded" onClick={() => buyNft(nft)}>Buy</button>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </main>
     </div>

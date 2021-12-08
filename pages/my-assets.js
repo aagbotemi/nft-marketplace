@@ -54,7 +54,7 @@ export default function MyAssets() {
     
     return (
         <div className="">
-            <div className="text-center mt-5">My Digital Assets</div>
+            <div className="text-2xl py-2 text-center mt-6">My Digital Assets</div>
             {
                 loadingState === 'not-loaded' ? <LoadingIndicator /> : null
             }
@@ -63,8 +63,9 @@ export default function MyAssets() {
                 nfts.map((nft, i) => (
                     <div key={i} className="border shadow rounded-xl overflow-hidden">
                         <img src={nft.image} className="rounded" alt="nfts assets" />
-                        <div className="p-4 bg-black">
-                        <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
+                        <div className="flex justify-between items-center p-4 bg-black text-xl text-black">
+                            <p>Price </p>
+                            <span className="font-medium">{nft.price} Eth</span>
                         </div>
                     </div>
                 ))

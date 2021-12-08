@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import LoadingIndicator from '../components/Loading'
 
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
@@ -18,6 +19,7 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 export default function CreateItem() {
     const [fileUrl, setFileUrl] = useState(null)
     const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+    const [loadingState, setLoadingState] = useState('not-loaded')
     const router = useRouter()
 
     async function onChange(e) {
@@ -125,7 +127,7 @@ export default function CreateItem() {
                     )
                     }
                     <button onClick={createMarket} className="font-bold mt-4 bg-blue-light text-white rounded p-4 shadow-lg">
-                    Create Digital Asset
+                        Create Digital Asset
                     </button>
                 </div>
             </div>
