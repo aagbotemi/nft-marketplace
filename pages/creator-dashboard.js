@@ -58,7 +58,7 @@ export default function CreatorDashboard() {
             <div className="p-4">
                 <h2 className="text-3xl py-2 text-center">Assets Created</h2>
                 {
-                    loadingState === 'not-loaded' ? <LoadingIndicator /> : null
+                    loadingState === 'not-loaded' ? <LoadingIndicator /> : <h1 className="py-1 text-center text-xl text-blue-light">No assets created</h1>
                 }
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
                     {
