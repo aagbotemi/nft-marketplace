@@ -64,7 +64,7 @@ export default function CreatorDashboard() {
                     {
                         nfts.map((nft, i) => (
                             <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
-                                <img src={nft.image} className="max-h-60 min-w-full object-fill" />
+                                <img src={nft.image} alt="nft asset" className="h-60 min-w-full object-fill" />
                                 <div className="flex justify-between items-center p-4 bg-black text-xl text-black">
                                     <p>Price </p>
                                     <span className="font-medium">{nft.price} Eth</span>
@@ -74,16 +74,16 @@ export default function CreatorDashboard() {
                     }
                 </div>
             </div>
-            <div>
+            <div className="mb-12">
                 {
                     Boolean(sold.length) && (
                         <div>
                             <h2 className="text-2xl py-2 text-center mt-6">Items sold</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 mx-5 sm:mx-8 md:mx-12 lg:mx-14 xl:mx-16 2xl:mx-auto" style={{ maxWidth: '1536px' }}>
                                 {
                                     sold.map((nft, i) => (
-                                        <div key={i} className="border shadow rounded-xl overflow-hidden">
-                                        <img src={nft.image} className="rounded" alt="nft asset" />
+                                        <div key={i} className="border w-full shadow rounded-xl overflow-hidden">
+                                        <img src={nft.image} className="h-60 min-w-full object-fill" alt="nft asset" />
                                         <div className="flex justify-between items-center p-4 bg-black text-xl text-black">
                                             <p>Price </p>
                                             <span className="font-medium">{nft.price} Eth</span>
