@@ -74,7 +74,7 @@ export default function CreatorDashboard() {
                     }
                 </div>
             </div>
-            <div className="mb-12">
+            <div>
                 {
                     Boolean(sold.length) && (
                         <div>

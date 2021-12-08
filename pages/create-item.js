@@ -99,7 +99,7 @@ export default function CreateItem() {
                 <p className="">Mint an NFT and list it on the marketplace</p>
             </div>
             <div className='flex justify-center'>
-                <div className="w-1/2 flex flex-col pb-12">
+                <div className="w-1/2 flex flex-col">
                     <input 
                         placeholder="Asset Name"
                         className="mt-8 border rounded p-4"
