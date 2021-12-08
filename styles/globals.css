@@ -15,15 +15,19 @@ body {
   /* font-family: 'Raleway', sans-serif; */
 }
 
+.main {
+  min-height: calc(100vh - 9rem)
+}
+
 /* Code found on https://loading.io/css/ */
 .lds-ring div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 40px;
-  height: 40px;
-  margin: 8px;
-  border: 3px solid #fff;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 2px solid #fff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #eee #0079d3;

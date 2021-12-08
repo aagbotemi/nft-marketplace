@@ -10,13 +10,8 @@ module.exports = {
         blue: {
           light: '#0079d3',
         },
-        gold: {
-          light: '#FF5C00',
-        },
-        pink: {
-          light: '#FFF8F5',
-        },
         black: {
+          dark: '#222',
           light: '#41415A',
         }
       }
